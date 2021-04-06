@@ -27,5 +27,11 @@ public class DemoApplication {
         return "EverGreen";
     }
     
+      public String something() {
+        int a = 2;
+        int b = a;
+        return "EverGreen";
+    }
+    
 }
 
