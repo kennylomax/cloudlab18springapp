@@ -19,8 +19,8 @@ ls -laR
 
     stage('test') {
       steps {
-        sh 'ls -laR'
         unstash 'build'
+        sh 'ls -laR'
       }
     }
 
