@@ -19,7 +19,8 @@ ls -laR
 
     stage('test') {
       steps {
-        sh 'ls -laR'
+        sh '''ls -laR
+mvn test  -Dgroups="fast"'''
       }
     }
 
