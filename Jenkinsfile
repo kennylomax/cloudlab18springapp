@@ -49,5 +49,17 @@ mvn test -Dgroups="slow"'''
       }
     }
 
+    stage('sonarq') {
+      steps {
+        withSonarQubeEnv('SonarQube') {
+          sh '''ls -la
+./mvnw clean package sonar:sonar
+ls -la
+'''
+        }
+
+      }
+    }
+
   }
 }
