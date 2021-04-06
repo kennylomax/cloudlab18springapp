@@ -2,8 +2,16 @@ pipeline {
   agent any
   stages {
     stage('build') {
+      agent {
+        docker {
+          image 'maven:3.6-jdk-11-slim'
+        }
+
+      }
       steps {
-        sh 'mvn install -D skipTests'
+        sh '''ls -la
+mvn install -D skipTests
+ls -la'''
       }
     }
 
