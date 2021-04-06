@@ -12,6 +12,7 @@ pipeline {
         sh '''ls -la
 mvn install -D skipTests
 ls -la'''
+        stash(name: 'build', includes: '**/target/**')
       }
     }
 
@@ -25,6 +26,7 @@ ls -la'''
 
           }
           steps {
+            unstash 'build'
             sh '''ls -la
 mvn test -Dgroups="fast"'''
           }
@@ -38,6 +40,7 @@ mvn test -Dgroups="fast"'''
 
           }
           steps {
+            unstash 'build'
             sh '''ls -la
 mvn test -Dgroups="slow"'''
           }
