@@ -67,5 +67,14 @@ mvn test -Dgroups="slow"
       }
     }
 
+    stage('manualqa') {
+      steps {
+        unstash 'build'
+        sh '''ls -la
+java -jar target/demo-0.0.1-SNAPSHOT.jar --server.port=8085 &'''
+        input(message: 'La de da on 8085?', ok: 'Go go go!')
+      }
+    }
+
   }
 }
