@@ -15,5 +15,24 @@ ls -la'''
       }
     }
 
+    stage('test') {
+      parallel {
+        stage('fast') {
+          steps {
+            sh '''ls -la
+mvn test -Dgroups="fast"'''
+          }
+        }
+
+        stage('slow') {
+          steps {
+            sh '''ls -la
+mvn test -Dgroups="slow"'''
+          }
+        }
+
+      }
+    }
+
   }
 }
