@@ -87,7 +87,7 @@ java -jar target/demo-0.0.1-SNAPSHOT.jar --server.port=8085 &
     stage('dockerbuildpush') {
       agent any
       environment {
-        DOCKER_HUB_LOGIN = 'credentials(\'docker-hub\')'
+        DOCKER_HUB_LOGIN = credentials('docker-hub')
       }
       steps {
         sh '''ls -la
