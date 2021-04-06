@@ -15,23 +15,11 @@ public class DemoApplication {
 
     @RequestMapping("/hithere")
     public String visitHome() {
-        int a = 2;
-        int b = a;
+      //  int a = 2;
+      //  int b = a;
         return "42";
     }
     
-  
-    public String somethingElse() {
-        int a = 2;
-        int b = a;
-        return "EverGreen";
-    }
-    
-      public String something() {
-        int a = 2;
-        int b = a;
-        return "EverGreen";
-    }
     
 }
 
