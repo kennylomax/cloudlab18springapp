@@ -28,7 +28,7 @@ class DemoApplicationTests {
 
         @Tag("slow")
         @Test
-        void aSuperSlowTest() {
+        void anotherSuperSlowTest() {
                 assertTrue(true);
         }
 }
