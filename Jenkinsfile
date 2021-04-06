@@ -29,7 +29,8 @@ ls -laR
           steps {
             unstash 'build'
             sh '''ls -la
-mvn test -Dgroups="fast"'''
+mvn test -Dgroups="fast"
+'''
           }
         }
 
@@ -43,7 +44,8 @@ mvn test -Dgroups="fast"'''
           steps {
             unstash 'build'
             sh '''ls -la
-mvn test -Dgroups="slow"'''
+mvn test -Dgroups="slow"
+'''
           }
         }
 
