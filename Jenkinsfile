@@ -61,5 +61,11 @@ ls -la
       }
     }
 
+    stage('waitsq') {
+      steps {
+        waitForQualityGate true
+      }
+    }
+
   }
 }
