@@ -31,5 +31,4 @@ class DemoApplicationTests {
                 assertTrue(true);
         }
 }
-        
-}
+
