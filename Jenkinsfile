@@ -99,7 +99,5 @@ docker push kenlomax/test1:v1
     }
 
   }
-  environment {
-    DOCKER_HUB_LOGIN = credentials(\'docker-hub\')
-  }
+
 }
