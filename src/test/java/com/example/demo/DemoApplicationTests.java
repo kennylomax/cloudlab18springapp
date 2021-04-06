@@ -19,7 +19,8 @@ class DemoApplicationTests {
                 assertTrue(true);
         }
 
-        @Tag("slow", "integration")
+        @Tag("integration")
+        @Tag("slow")
         @Test
         void aSuperSlowTest() {
                 assertTrue(true);
