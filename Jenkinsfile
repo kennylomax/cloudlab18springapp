@@ -61,5 +61,11 @@ mvn test -Dgroups="slow"
       }
     }
 
+    stage('waitForSonarQ') {
+      steps {
+        waitForQualityGate true
+      }
+    }
+
   }
 }
