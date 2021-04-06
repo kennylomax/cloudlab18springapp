@@ -68,6 +68,13 @@ mvn test -Dgroups="slow"
     }
 
     stage('manualqa') {
+      agent {
+        docker {
+          image 'openjdk:latest'
+          args '-p 8085:8085'
+        }
+
+      }
       steps {
         unstash 'build'
         sh '''ls -la
