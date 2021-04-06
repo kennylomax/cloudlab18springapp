@@ -18,7 +18,7 @@ ls -laR
 
     stage('test') {
       steps {
-        sh 'ls -la'
+        sh 'ls -laR'
       }
     }
 
