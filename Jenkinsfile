@@ -90,6 +90,7 @@ java -jar target/demo-0.0.1-SNAPSHOT.jar --server.port=8085 &
         DOCKER_HUB_LOGIN = credentials('docker-hub')
       }
       steps {
+        unstash 'build'
         sh '''ls -la
 docker login --username=$DOCKER_HUB_LOGIN_USR --password=$DOCKER_HUB_LOGIN_PSW
 docker build -t kenlomax/test1:v1 .
@@ -99,5 +100,4 @@ docker push kenlomax/test1:v1
     }
 
   }
-
 }
