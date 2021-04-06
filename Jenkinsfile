@@ -13,12 +13,14 @@ pipeline {
 mvn install -DskipTests
 ls -laR
 '''
+        stash(includes: '**/target/**', name: 'build')
       }
     }
 
     stage('test') {
       steps {
         sh 'ls -laR'
+        unstash 'build'
       }
     }
 
