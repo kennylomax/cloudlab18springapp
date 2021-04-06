@@ -21,7 +21,7 @@ public class DemoApplication {
     }
     
   
-    public String something() {
+    public String somethingElse() {
         int a = 2;
         int b = a;
         return "EverGreen";
