@@ -84,6 +84,9 @@ java -jar target/demo-0.0.1-SNAPSHOT.jar --server.port=8085 &'''
     }
 
     stage('docker build') {
+      environment {
+        DOCKER_HUB_LOGIN = 'credentials(\'docker-hub\')'
+      }
       steps {
         unstash 'build'
         sh '''ls -la
@@ -95,5 +98,8 @@ ls -la
       }
     }
 
+  }
+  environment {
+    DOCKER_HUB_LOGIN = 'credentials(\'docker-hub\')'
   }
 }
