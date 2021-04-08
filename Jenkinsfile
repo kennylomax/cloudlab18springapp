@@ -60,5 +60,21 @@ ls -la'''
       }
     }
 
+    stage('manualqa') {
+      agent {
+        docker {
+          image 'openjdk:latest'
+          args '-p 8085:8085'
+        }
+
+      }
+      steps {
+        unstash 'build'
+        sh '''ls -la
+java -jar target/demo-0.0.1-SNAPSHOT.jar --server.port=8085 &'''
+        input(message: 'Is the site ok to you o 8085??', ok: 'Oui oui!')
+      }
+    }
+
   }
 }
