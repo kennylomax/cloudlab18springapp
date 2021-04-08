@@ -15,5 +15,11 @@ ls -la'''
       }
     }
 
+    stage('tests') {
+      steps {
+        sh 'ls -la'
+      }
+    }
+
   }
 }
