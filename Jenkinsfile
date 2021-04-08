@@ -17,9 +17,25 @@ ls -la'''
     }
 
     stage('tests') {
-      steps {
-        unstash 'build'
-        sh 'ls -la'
+      parallel {
+        stage('slow') {
+          steps {
+            unstash 'build'
+            sh '''ls -la
+mvn test -Dgroups="slow"
+ls -la'''
+          }
+        }
+
+        stage('fast') {
+          steps {
+            unstash 'build'
+            sh '''ls -la
+mvn test -Dgroups="fast"
+ls -la'''
+          }
+        }
+
       }
     }
 
