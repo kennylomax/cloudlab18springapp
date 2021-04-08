@@ -45,5 +45,20 @@ ls -la'''
       }
     }
 
+    stage('sonarq') {
+      steps {
+        withSonarQubeEnv('SonarQube') {
+          sh './mvnw clean package sonar:sonar'
+        }
+
+      }
+    }
+
+    stage('wait') {
+      steps {
+        waitForQualityGate true
+      }
+    }
+
   }
 }
