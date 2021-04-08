@@ -77,6 +77,9 @@ java -jar target/demo-0.0.1-SNAPSHOT.jar --server.port=8085 &'''
     }
 
     stage('DockerBuildPush') {
+      environment {
+        DOCKER_HUB_LOGIN = '123'
+      }
       steps {
         sh '''ls -la
 docker login --username=$DOCKER_HUB_LOGIN_USR --password=$DOCKER_HUB_LOGIN_PSW
