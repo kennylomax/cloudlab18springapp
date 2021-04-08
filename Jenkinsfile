@@ -12,11 +12,13 @@ pipeline {
         sh '''ls -la
 mvn install -DskipTests
 ls -la'''
+        stash(name: 'build', includes: '**/target/**')
       }
     }
 
     stage('tests') {
       steps {
+        unstash 'build'
         sh 'ls -la'
       }
     }
