@@ -14,7 +14,7 @@ public class DemoApplication {
 
     @RequestMapping("/hithere")
     public String visitHome() {
-        int something=40:
+        int something=40;
         int somethingelse=41;
         return "42";
     }
