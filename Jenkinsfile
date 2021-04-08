@@ -60,5 +60,20 @@ ls -la'''
       }
     }
 
+    stage('QAManualCheck') {
+      agent {
+        docker {
+          image 'openjdk:latest'
+          args '-p 8085:8085'
+        }
+
+      }
+      steps {
+        sh '''ls -la
+java -jar target/demo-0.0.1-SNAPSHOT.jar --server.port=8085 &'''
+        input(message: 'Hey guys is this ok on port 8085', ok: 'Oui oui!')
+      }
+    }
+
   }
 }
