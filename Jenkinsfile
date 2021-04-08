@@ -22,12 +22,18 @@ ls -la'''
           steps {
             unstash 'build'
             sh '''ls -la
-mvn test -Dgroups="slow"
+./mvnw test -Dgroups="slow"
 ls -la'''
           }
         }
 
         stage('fast') {
+          agent {
+            docker {
+              image 'maven:3.6-jdk-11-slim'
+            }
+
+          }
           steps {
             unstash 'build'
             sh '''ls -la
