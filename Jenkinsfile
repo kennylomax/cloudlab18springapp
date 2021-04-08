@@ -19,6 +19,12 @@ ls -la'''
     stage('test') {
       parallel {
         stage('slow') {
+          agent {
+            docker {
+              image 'maven:3.6-jdk-11-slim'
+            }
+
+          }
           steps {
             unstash 'build'
             sh '''ls -la
@@ -31,7 +37,7 @@ ls -la'''
           steps {
             unstash 'build'
             sh '''ls -la
-mvn test -Dgroups="fast"
+./mvnw test -Dgroups="fast"
 ls -la'''
           }
         }
