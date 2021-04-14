@@ -18,5 +18,15 @@ ls -la
       }
     }
 
+    stage('test') {
+      steps {
+        sh '''ls -la
+
+mvn test -Dgroups="slow"
+
+ls -la'''
+      }
+    }
+
   }
 }
