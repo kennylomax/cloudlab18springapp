@@ -14,8 +14,6 @@ public class DemoApplication {
 
     @RequestMapping("/hithere")
     public String visitHome() {
-        int smelly=1;
-        int smellier=2;
         return "42";
     }
     
