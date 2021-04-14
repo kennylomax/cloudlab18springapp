@@ -67,5 +67,20 @@ java -jar target/demo-0.0.1-SNAPSHOT.jar --server.port=8085 &'''
       }
     }
 
+    stage('sonarqube') {
+      steps {
+        withSonarQubeEnv('SonarQube') {
+          sh './mvnw clean package sonar:sonar'
+        }
+
+      }
+    }
+
+    stage('sonarqubewait') {
+      steps {
+        waitForQualityGate true
+      }
+    }
+
   }
 }
