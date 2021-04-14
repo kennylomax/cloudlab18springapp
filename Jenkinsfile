@@ -15,6 +15,7 @@ mvn install -DskipTests
 
 ls -la
 '''
+        stash(name: 'build', includes: '**/target/**')
       }
     }
 
@@ -28,6 +29,7 @@ ls -la
 
           }
           steps {
+            unstash 'build'
             sh '''ls -la
 
 mvn test -Dgroups="slow"
@@ -38,6 +40,7 @@ ls -la'''
 
         stage('fast') {
           steps {
+            unstash 'build'
             sh '''ls -la
 ./mvnw test -Dgroups="fast"
 ls -la'''
