@@ -50,7 +50,7 @@ ls -la'''
       }
     }
 
-    stage('') {
+    stage('manualqa') {
       agent {
         docker {
           image 'openjdk:latest'
