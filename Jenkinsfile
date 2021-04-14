@@ -59,6 +59,7 @@ ls -la'''
 
       }
       steps {
+        unstash 'build'
         sh '''ls -la
 
 java -jar target/demo-0.0.1-SNAPSHOT.jar --server.port=8085 &'''
