@@ -55,7 +55,7 @@ ls -la'''
       }
     }
 
-    stage('wait') {
+    stage('waiting') {
       steps {
         waitForQualityGate true
       }
