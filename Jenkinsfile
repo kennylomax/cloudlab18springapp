@@ -81,7 +81,7 @@ java -jar target/demo-0.0.1-SNAPSHOT.jar --server.port=8085 &
       }
     }
 
-    stage('dockerbuildandpush') {
+    stage('dockerbuildandpushit') {
       environment {
         DOCKER_HUB_LOGIN = credentials('docker-hub')
       }
