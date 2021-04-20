@@ -58,7 +58,7 @@ ls -la'''
       }
     }
 
-    stage('awaitsonarqube') {
+    stage('awaitingonarqube') {
       steps {
         waitForQualityGate true
       }
